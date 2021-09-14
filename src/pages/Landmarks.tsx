@@ -1,4 +1,4 @@
-import Card from "../ui/Card";
+import LandmarkList from "../components/landmarks/LandmarkList";
 
 const DUMMY_DATA = [
   {
@@ -20,24 +20,12 @@ const DUMMY_DATA = [
 ];
 
 // Demo of mapping array of objects to JSX items
-function Sights() {
+function LandmarksPage() {
   return (
     <div className="sights-container">
-      {DUMMY_DATA.map((sight) => {
-        return (
-          <Card key={sight.id}>
-            <img
-              src={sight.img}
-              alt={sight.title}
-              height="200px"
-              width="300px"
-            />
-            <h3>{sight.title}</h3>
-          </Card>
-        );
-      })}
+      <LandmarkList landmarks={DUMMY_DATA}></LandmarkList>
     </div>
   );
 }
 
-export default Sights;
+export default LandmarksPage;

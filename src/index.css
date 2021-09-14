@@ -43,10 +43,3 @@ h1, h2 {
   background-color: #f8dae9;
 }
 
-.sights-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-}

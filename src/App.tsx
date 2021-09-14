@@ -1,21 +1,28 @@
 import { Route, Switch } from "react-router-dom";
-import MainHeader from "./components/layout/MainHeader";
-import Home from "./pages/Home";
-import Sights from "./pages/Sights";
+import Layout from "./components/layout/Layout";
+import MapPage from "./pages/Map";
+import LandmarksPage from "./pages/Landmarks";
+import SubmitPage from "./pages/SubmitContent";
 
 function App() {
   return (
-    <div>
-      <MainHeader/>
+    <Layout>
       <Switch>
+
         <Route path="/" exact>
-          <Home />
+          <MapPage />
         </Route>
-        <Route path="/sights" exact>
-          <Sights />
+
+        <Route path="/landmarks" exact>
+          <LandmarksPage />
         </Route>
+
+        <Route path="/submit" exact>
+          <SubmitPage />
+        </Route>
+        
       </Switch>
-    </div>
+    </Layout>
   );
 }
 

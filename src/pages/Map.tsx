@@ -1,7 +1,7 @@
 import { MapContainer, Marker, Popup, TileLayer  } from "react-leaflet";
 import * as L from "leaflet";
 
-function Home() {
+function MapPage() {
     var greenIcon =L.icon({
         iconUrl: 'markers/leaf-green.png',
         shadowUrl: 'markers/leaf-shadow.png',
@@ -17,6 +17,7 @@ function Home() {
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          
         />
         <Marker position={[50.061, 19.939]} icon={greenIcon}>
           <Popup>
@@ -27,4 +28,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default MapPage;
