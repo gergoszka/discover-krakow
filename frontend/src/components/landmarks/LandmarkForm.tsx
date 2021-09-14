@@ -1,4 +1,5 @@
 import { FormEvent, useRef } from "react";
+import { Landmark } from "../../Interfaces";
 import Card from "../ui/Card";
 import classes from "./Landmarks.module.css";
 
@@ -9,7 +10,7 @@ function LandmarkForm(props: any) {
   function submitHandler(event: FormEvent) {
     event.preventDefault();
     if(titleRef.current && imageRef.current){
-      const submitData ={
+      const submitData: Landmark ={
         title: titleRef.current.value,
         image: imageRef.current.value
       }
@@ -20,6 +21,7 @@ function LandmarkForm(props: any) {
       imageRef.current.value = "";
     }
   }
+  
   return (
     <div className={classes.formContainer}>
       <Card>
