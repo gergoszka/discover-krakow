@@ -1,7 +1,11 @@
 import LandmarkForm from "../components/landmarks/LandmarkForm";
 
 function SubmitPage() {
-  return <LandmarkForm />
+  function addLandmarkHandler(){
+
+  }
+
+  return <LandmarkForm onAddLandmark={addLandmarkHandler } />
 }
 
 export default SubmitPage;
