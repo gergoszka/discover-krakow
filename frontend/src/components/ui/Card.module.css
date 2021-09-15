@@ -6,8 +6,15 @@
   flex-direction: column;
   align-items: center;
   border-radius: 6px;
+  margin: 1rem 1rem 2rem 1rem;
 }
 
-.card h3 {
-  vertical-align: top;
+.star {
+  padding-left: 1rem;
+  vertical-align: middle;
+}
+
+.star_filled {
+  
+  color: rgb(236, 215, 27);
 }

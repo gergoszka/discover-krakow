@@ -43,3 +43,8 @@ h1, h2 {
   background-color: #f8dae9;
 }
 
+.total_fav{
+  padding: 3px 10px;
+  border-radius: 10px;
+  background-color: rgb(214, 108, 108);
+}
