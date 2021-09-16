@@ -7,14 +7,13 @@ const classes = require("../ui/Card.module.css");
 
 function LandMarkItem(props: any) {
   let landmark: Landmark = props.landmark;
-  let id = landmark._id;
-
+  
   const favoriteCtx = useContext(FavoritesContext);
-  const itemIsFavorite = favoriteCtx.itemIsFavorite(id);
-
+  const itemIsFavorite = favoriteCtx.itemIsFavorite(landmark._id);
+  
   function toggleFavoriteHandler() {
     if (itemIsFavorite) {
-      favoriteCtx.removeFavorite(id);
+      favoriteCtx.removeFavorite(landmark._id);
     } else {
       favoriteCtx.addFavorite(landmark);
     }
@@ -39,7 +38,10 @@ function LandMarkItem(props: any) {
               <RiStarFill />
             </span>
           ) : (
-            <span className={classes.star} onClick={toggleFavoriteHandler}>
+            <span 
+              className={classes.star} 
+              onClick={toggleFavoriteHandler}
+            >
               <RiStarLine />
             </span>
           )}

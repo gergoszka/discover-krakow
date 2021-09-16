@@ -6,10 +6,10 @@ function FavoritesPage() {
   const favoriteCtx = useContext(FavoritesContext);
   
   return (
-    <div className="sights-container">
+    <div >
       <LandmarkList landmarks={favoriteCtx.favorites}/>
     </div>
   );
 }
-
+ 
 export default FavoritesPage;

@@ -50,3 +50,8 @@ h1, h2 {
   border-radius: 12px;
   background-color: rgb(214, 108, 108);
 }
+
+img {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
