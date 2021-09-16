@@ -1,5 +1,5 @@
 export interface Landmark {
-  _id?: string
+  _id: string
   title: string,
   image: string
 }

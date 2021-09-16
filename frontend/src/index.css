@@ -44,7 +44,9 @@ h1, h2 {
 }
 
 .total_fav{
-  padding: 3px 10px;
-  border-radius: 10px;
+  color: white;
+  padding: 0.2rem 0.8rem;
+  margin-left: 0.5rem;
+  border-radius: 12px;
   background-color: rgb(214, 108, 108);
 }

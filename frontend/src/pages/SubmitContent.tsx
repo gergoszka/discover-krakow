@@ -4,7 +4,7 @@ import { Landmark } from "../Interfaces";
 
 function SubmitPage() {
   function addLandmarkHandler(newLandmark: Landmark){  
-    axios.post("http://localhost:4040/landmarks", newLandmark).then(res => {console.log(res)})
+    axios.post("http://localhost:4040/landmarks", newLandmark);
   }
 
   return <LandmarkForm onAddLandmark={addLandmarkHandler } />

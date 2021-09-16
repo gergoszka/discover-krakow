@@ -9,7 +9,6 @@ function App() {
   return (
     <Layout>
       <Switch>
-
         <Route path="/" exact>
           <MapPage />
         </Route>
@@ -25,7 +24,6 @@ function App() {
         <Route path="/submit" exact>
           <SubmitPage />
         </Route>
-        
       </Switch>
     </Layout>
   );

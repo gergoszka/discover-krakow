@@ -1,28 +1,27 @@
 import { useContext } from "react";
 import Card from "../ui/Card";
 import { Landmark } from "../../Interfaces";
-import classes from "../ui/Card.module.css";
 import { RiStarLine, RiStarFill } from "react-icons/ri";
 import FavoritesContext from "../../store/favorites-context";
+const classes = require("../ui/Card.module.css");
 
 function LandMarkItem(props: any) {
   let landmark: Landmark = props.landmark;
-  let id = ""
-  if(landmark._id) {id = landmark._id}
-  
+  let id = landmark._id;
+
   const favoriteCtx = useContext(FavoritesContext);
   const itemIsFavorite = favoriteCtx.itemIsFavorite(id);
 
   function toggleFavoriteHandler() {
-    if(itemIsFavorite){
-      favoriteCtx.removeFavorite(id)
+    if (itemIsFavorite) {
+      favoriteCtx.removeFavorite(id);
     } else {
-      favoriteCtx.addFavorite(landmark)
+      favoriteCtx.addFavorite(landmark);
     }
   }
 
   return (
-    <li style={{width: "fit-content"}}>
+    <li style={{ width: "fit-content" }}>
       <Card>
         <img
           src={landmark.image}
@@ -33,7 +32,10 @@ function LandMarkItem(props: any) {
         <h3>
           {landmark.title}
           {itemIsFavorite ? (
-            <span className={`${classes.star_filled} ${classes.star}`} onClick={toggleFavoriteHandler}>
+            <span
+              className={`${classes.star_filled} ${classes.star}`}
+              onClick={toggleFavoriteHandler}
+            >
               <RiStarFill />
             </span>
           ) : (

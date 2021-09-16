@@ -1,7 +1,6 @@
 import { FormEvent, useRef } from "react";
-import { Landmark } from "../../Interfaces";
 import Card from "../ui/Card";
-import classes from "./Landmarks.module.css";
+const classes = require("./Landmarks.module.css");
 
 function LandmarkForm(props: any) {
   const titleRef = useRef<HTMLInputElement>(null);
@@ -10,7 +9,7 @@ function LandmarkForm(props: any) {
   function submitHandler(event: FormEvent) {
     event.preventDefault();
     if(titleRef.current && imageRef.current){
-      const submitData: Landmark ={
+      const submitData = {
         title: titleRef.current.value,
         image: imageRef.current.value
       }
@@ -33,7 +32,7 @@ function LandmarkForm(props: any) {
           </div>
           <div className={classes.control}>
             <label htmlFor="image">Image Url</label>
-            <input type="irl" required id="image" ref={imageRef} />
+            <input type="url" required id="image" ref={imageRef} />
           </div>
           <div className={classes.actions}>
             <button>Add Landmark</button>

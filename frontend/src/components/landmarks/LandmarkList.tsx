@@ -1,6 +1,6 @@
 import { Landmark } from "../../Interfaces";
 import LandMarkItem from "./LandmarkItem";
-import classes from './Landmarks.module.css';
+const classes = require('./Landmarks.module.css');
 
 function LandmarkList(props: any) {
   return (
