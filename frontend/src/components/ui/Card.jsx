@@ -1,6 +1,6 @@
 const classes = require("./Card.module.css");
 
-function Card(props: any) {
+function Card(props) {
   return (<div className={classes.card}>{props.children}</div>)
 }
 

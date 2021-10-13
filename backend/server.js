@@ -17,11 +17,23 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 
 app.post("/landmarks", (req, res) => {
-  const landmark = new models.Landmark(req.body);
+  let _landmark = {
+    title: req.body.title,
+    image: req.body.image,
+    description: req.body.desc,
+    position: [req.body.lat, req.body.lng]
+  }
+
+  const landmark = new models.Landmark(_landmark);
   landmark.save((err) => {
-    if (err) return console.log("ERROR: " + err.message);
+    if (err) {
+      return console.log("ERROR: " + err.message);
+    } else {
+      models.Landmark.find({}, "-__v", (err, landmarks) => {
+        res.send(landmarks);
+      });
+    }
   });
-  res.sendStatus(200);
 });
 
 app.get("/landmarks", (req, res) => {

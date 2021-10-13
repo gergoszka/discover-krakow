@@ -1,6 +1,6 @@
 import MainHeader from "./MainHeader";
 
-function Layout(props: any) {
+function Layout(props) {
   return(
     <div>
       <MainHeader/>

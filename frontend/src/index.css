@@ -14,9 +14,11 @@ body {
   margin: 0;
 }
 
+
 h1, h2 {
   color: #333333;
 }
+
 
 .btn {
   font: inherit;
@@ -54,4 +56,20 @@ h1, h2 {
 img {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+}
+
+
+/* Move to its own file */
+
+.map {
+  height: 90vh; 
+}
+
+#submitMap {
+  width: 70vw;
+  right: 0;
+}
+
+.container{
+  display: inline;
 }

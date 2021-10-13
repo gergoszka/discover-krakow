@@ -1,0 +1,39 @@
+.sidebar{
+  position: absolute;
+  width: 350px;
+  top: 10vh;
+  left: 0;
+  z-index: 400;
+  background-color: white;
+  height: 90vh;
+  visibility: visible;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.title {
+  margin-top: 4rem;
+}
+
+.image {
+  width: 100%;
+  opacity: 1;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  margin: 0.5rem
+}
+
+.desc {
+  height: 12rem;
+  overflow: auto;
+  margin-top: 1rem;
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  margin: 0.5rem
+}

@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import classes from "./MainHeader.module.css";
-import FavoritesContext from "../../store/favorites-context";
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 function MainHeader() {
-  const favoriteCtx = useContext(FavoritesContext);
+  const totalFavorites = useSelector((state) => state.favorites.length)
 
   return (
     <header className={classes.header}>
@@ -17,7 +16,7 @@ function MainHeader() {
             <Link to="/landmarks">Sights</Link>
           </li>
           <li>
-            <Link to="/favorites">My Favorites <span className="total_fav">{favoriteCtx.totalFavorites}</span></Link>
+            <Link to="/favorites">My Favorites <span className="total_fav">{totalFavorites}</span></Link>
           </li>
           <li>
             <Link to="/submit">Submit Content</Link>
