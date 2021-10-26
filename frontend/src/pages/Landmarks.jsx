@@ -15,10 +15,11 @@ function LandmarksPage() {
 	}, [favoriteLandmarks]);
 
 	function sortLandmarkList(all) {
+    // filters out non-favorite items
 		let nonFav = all
-      .filter((item) =>!favoriteLandmarks
-      .map((landmark) => landmark._id)
-      .includes(item._id)
+      .filter((item) => !favoriteLandmarks
+        .map((landmark) => landmark._id)
+        .includes(item._id)
 		);
 
 		return favoriteLandmarks.concat(nonFav);

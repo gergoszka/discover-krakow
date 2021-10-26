@@ -6,7 +6,6 @@ export const sightSlice = createSlice({
 	initialState: [],
 	reducers: {
 		getSights: (state, action) => {
-			console.log("reducer");
 			return [...action.payload]
 		},
 	},

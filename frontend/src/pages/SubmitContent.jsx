@@ -1,3 +1,4 @@
+import axios from "axios";
 import * as L from "leaflet";
 import { useState } from "react";
 import {
@@ -10,6 +11,8 @@ import LandmarkForm from "../components/landmarks/LandmarkForm";
 
 function SubmitPage() {
 	let [position, setPosition] = useState([0, 0]);
+	let [address, setAddress] = useState("");
+
 
 	const bounds = new L.LatLngBounds(
 		new L.LatLng(49.975847, 19.793307),
@@ -21,6 +24,20 @@ function SubmitPage() {
 			click(e) {
 				let pos = [e.latlng.lat, e.latlng.lng];
 				setPosition(pos);
+				axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${pos[0]} ${pos[1]}&key=b03e599f1e0a443189e4443c8bd5a862&language=en&pretty=1`)
+					.then((res) => {
+						let address = ""
+						if(res.data?.results[0]) {
+							address = res.data.results[0].formatted
+							setAddress(address)
+						}
+
+						// Forward geocoding
+						/* axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${address}&key=b03e599f1e0a443189e4443c8bd5a862&language=en&pretty=1`)
+						.then((res)=>{
+							console.log(res);
+						}) */
+					})
 			},
 		});
 
@@ -30,7 +47,7 @@ function SubmitPage() {
 
 	return (
 		<div style={{ display: "flex" }}>
-			<LandmarkForm position={position}/>
+			<LandmarkForm position={position} address={address}/>
 			<MapContainer
 				center={[50.00605257971319, 19.996646271232147]}
 				zoom={12}

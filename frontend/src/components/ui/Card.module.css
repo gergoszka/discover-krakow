@@ -21,3 +21,8 @@
 .star_filled {
   color: rgb(236, 215, 27);
 }
+
+.img_card {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}

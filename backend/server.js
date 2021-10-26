@@ -17,10 +17,12 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 
 app.post("/landmarks", (req, res) => {
+  console.log(req.body);
   let _landmark = {
     title: req.body.title,
     image: req.body.image,
     description: req.body.desc,
+    type: req.body.type,
     position: [req.body.lat, req.body.lng]
   }
 

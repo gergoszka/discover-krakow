@@ -23,7 +23,8 @@ function LandMarkItem(props) {
 	return (
 		<li style={{ width: "fit-content" }}>
 			<Card>
-				<img
+				<img 
+          className={classes.img_card}
 					src={landmark.image}
 					alt={landmark.title}
 					height="200px"
