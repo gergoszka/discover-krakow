@@ -43,13 +43,6 @@ function MapPage(props) {
 					/>
 				</GroupedLayer>
 
-				<GroupedLayer name="Parks" group="Base Layers">
-					<TileLayer
-						attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> conasdtributors'
-						url="https://api.mapbox.com/styles/v1/gergoszka/ckunvoked4t3g17nslhspmeg0/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZ2VyZ29zemthIiwiYSI6ImNrdW1wb3ljMTB2Y2wycW1vdGV3M25rMHQifQ.TfAG6DwnHfLUhnygOXizbA"
-					/>
-				</GroupedLayer>
-
 				<MarkerLayer mapReset={props.mapReset} />
 				
 				<GroupedLayer name="Districts" group="Other">

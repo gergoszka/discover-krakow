@@ -10,7 +10,7 @@ function MarkerLayer(props) {
 	const loadedLandmarks = useSelector((state) => state.sights);
 
   /*
-    Constants fot custom icons
+    Constants for custom icons
     TODO: Move to an another file
   */
   const GROUPNAMES = {

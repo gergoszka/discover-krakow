@@ -32,7 +32,7 @@ function LandmarkForm(props) {
 		const delayDebounceFn = setTimeout(() => {
 			if(formData.address.length > 3){
 				axios.get(
-						`https://api.opencagedata.com/geocode/v1/json?q=${formData.address}&key=b03e599f1e0a443189e4443c8bd5a862&language=en&pretty=1`)
+						`https://api.opencagedata.com/geocode/v1/json?q=${formData.address}&key=${process.env.REACT_APP_GEOCODING_API_KEY}&language=en&pretty=1`)
 					.then((res) => {
 						deleteOptions();
 						setAddrList(res.data?.results.map((obj)=>obj.formatted));
@@ -41,6 +41,9 @@ function LandmarkForm(props) {
 								...formData,
 								position: [res.data.results[0].geometry.lat, res.data.results[0].geometry.lng],
 							});
+							// THis is buggy as hell
+							// Clean it up pls, future Greg
+							//props.setPos([res.data.results[0].geometry.lat, res.data.results[0].geometry.lng])
 						}
 					});
 			}

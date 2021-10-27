@@ -24,19 +24,13 @@ function SubmitPage() {
 			click(e) {
 				let pos = [e.latlng.lat, e.latlng.lng];
 				setPosition(pos);
-				axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${pos[0]} ${pos[1]}&key=b03e599f1e0a443189e4443c8bd5a862&language=en&pretty=1`)
+				axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${pos[0]} ${pos[1]}&key=${process.env.REACT_APP_GEOCODING_API_KEY}&language=en&pretty=1`)
 					.then((res) => {
 						let address = ""
 						if(res.data?.results[0]) {
 							address = res.data.results[0].formatted
 							setAddress(address)
 						}
-
-						// Forward geocoding
-						/* axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${address}&key=b03e599f1e0a443189e4443c8bd5a862&language=en&pretty=1`)
-						.then((res)=>{
-							console.log(res);
-						}) */
 					})
 			},
 		});
@@ -47,7 +41,7 @@ function SubmitPage() {
 
 	return (
 		<div style={{ display: "flex" }}>
-			<LandmarkForm position={position} address={address}/>
+			<LandmarkForm position={position} address={address} setPos={setPosition}/>
 			<MapContainer
 				center={[50.00605257971319, 19.996646271232147]}
 				zoom={12}
@@ -60,7 +54,6 @@ function SubmitPage() {
 			>
 				<TileLayer
 					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-					//url="https://api.mapbox.com/styles/v1/gergoszka/ckumszpr707ig18qrhiyufsgv/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZ2VyZ29zemthIiwiYSI6ImNrdW1wb3ljMTB2Y2wycW1vdGV3M25rMHQifQ.TfAG6DwnHfLUhnygOXizbA"
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
 				<SubmitMarker />
