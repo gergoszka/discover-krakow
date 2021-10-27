@@ -3,6 +3,7 @@ const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const cors = require("cors");
+const config = require('dotenv').config();
 const PORT = 4040;
 
 app.use(cors());
@@ -11,7 +12,7 @@ app.use(express.json());
 // DB init stuff
 const mongoose = require("mongoose");
 const models = require("./models.js");
-const uri = "mongodb+srv://greg:LeafletThesis2021@cluster0.g97hf.mongodb.net/Leaflet_Thesis?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));

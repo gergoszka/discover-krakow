@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getSights } from "../../store/reducers/sightSlice";
-import Select from "react-select"
 const classes = require("./Landmarks.module.css");
 
 /* eslint-disable */
