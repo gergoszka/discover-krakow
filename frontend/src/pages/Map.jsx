@@ -38,7 +38,6 @@ function MapPage(props) {
 				<GroupedLayer checked name="OpenStreetMap" group="Base Layers">
 					<TileLayer
 						attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-						//url="https://api.mapbox.com/styles/v1/gergoszka/ckumszpr707ig18qrhiyufsgv/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZ2VyZ29zemthIiwiYSI6ImNrdW1wb3ljMTB2Y2wycW1vdGV3M25rMHQifQ.TfAG6DwnHfLUhnygOXizbA"
 						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 					/>
 				</GroupedLayer>
