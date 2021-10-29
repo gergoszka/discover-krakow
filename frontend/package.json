@@ -9,7 +9,6 @@
     "@reduxjs/toolkit": "^1.6.2",
     "axios": "^0.21.4",
     "leaflet": "^1.7.1",
-    "lodash.groupby": "^4.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -23,10 +22,11 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start ",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docs": "jsdoc -c jsdoc.conf.json"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +48,8 @@
     "@types/node": "^16.9.1",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
-    "@types/react-router-dom": "^5.1.8"
+    "@types/react-router-dom": "^5.1.8",
+    "better-docs": "^2.3.2",
+    "jsdoc": "^3.6.7"
   }
 }

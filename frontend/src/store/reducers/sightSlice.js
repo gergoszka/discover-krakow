@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 export const sightSlice = createSlice({
 	name: "sights",
 	initialState: [],
