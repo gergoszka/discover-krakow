@@ -10,9 +10,9 @@ function LandmarksPage() {
 	let [landmarks, setLandmarks] = useState([]);
 
 	useEffect(() => {
-		let landmarks = sortLandmarkList(loadedLandmarks);
-		setLandmarks(landmarks);
-	}, [favoriteLandmarks]);
+		let _landmarks = sortLandmarkList(loadedLandmarks);
+		setLandmarks(_landmarks);
+	}, [loadedLandmarks, favoriteLandmarks]);
 
 	function sortLandmarkList(all) {
     // filters out non-favorite items

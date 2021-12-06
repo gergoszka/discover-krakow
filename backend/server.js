@@ -24,7 +24,7 @@ app.post("/landmarks", (req, res) => {
     image: req.body.image,
     description: req.body.desc,
     type: req.body.type,
-    position: [req.body.lat, req.body.lng]
+    position: req.body.position
   }
 
   const landmark = new models.Landmark(_landmark);

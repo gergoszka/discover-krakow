@@ -8,18 +8,19 @@ import {
 	useMapEvents,
 } from "react-leaflet";
 import LandmarkForm from "../components/landmarks/LandmarkForm";
+import { ICONS } from "../components/map/customIcons"
 
 function SubmitPage() {
 	let [position, setPosition] = useState([0, 0]);
 	let [address, setAddress] = useState("");
-
+	let [type, setType] = useState("poi");
 
 	const bounds = new L.LatLngBounds(
 		new L.LatLng(49.975847, 19.793307),
 		new L.LatLng(50.126649, 20.1)
 	);
 
-	const SubmitMarker = () => {
+	const SubmitMarker = () => { 
 		useMapEvents({
 			click(e) {
 				let pos = [e.latlng.lat, e.latlng.lng];
@@ -35,13 +36,12 @@ function SubmitPage() {
 			},
 		});
 
-		return position ? <Marker position={position} interactive={false} /> : null;
+		return position ? <Marker position={position} icon={ICONS[type]} interactive={false} /> : null;
 	};
-
 
 	return (
 		<div style={{ display: "flex" }}>
-			<LandmarkForm position={position} address={address} setPos={setPosition}/>
+			<LandmarkForm position={position} address={address} setMarker={setType}/>
 			<MapContainer
 				center={[50.00605257971319, 19.996646271232147]}
 				zoom={12}

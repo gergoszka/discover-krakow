@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #77002e;
+  background-color: #276dbd;
   padding: 0 5%;
 }
 
@@ -29,7 +29,7 @@
 .header li a {
   text-decoration: none;
   font-size: 1.5rem;
-  color: #fcb8d2;
+  color: #d3e6ff;
 }
 
 .header a:hover,
@@ -39,7 +39,7 @@
 }
 
 .badge {
-  background-color: #cc2062;
+  background-color: #2116b9;
   color: white;
   border-radius: 12px;
   padding: 0 1rem;

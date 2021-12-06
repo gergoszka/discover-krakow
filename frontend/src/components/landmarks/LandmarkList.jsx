@@ -5,7 +5,7 @@ function LandmarkList(props) {
   return (
   <ul className={classes.container}>
     {props.landmarks.map((landmark) => <LandMarkItem key={landmark._id} landmark={landmark}/>)}
-  </ul>
+  </ul> 
   )
 }
 

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { LayerGroup, MapConsumer, Marker } from "react-leaflet";
+import { LayerGroup, LayersControl, MapConsumer, Marker } from "react-leaflet";
 import { useSelector } from "react-redux";
-import { GroupedLayer } from "./LayerControl";
 import { GROUPNAMES, ICONS } from "./customIcons"
 
 function MarkerLayer(props) {
@@ -22,13 +21,12 @@ function MarkerLayer(props) {
 		let sidebar = document.querySelector("#sidebar");
 		toogleSidebar(sight._id);
 		setLastMarker(sight._id);
-    console.log(sight.type)
 
 		sidebar.children.namedItem("desc").innerHTML = sight.description;
 		sidebar.children.namedItem("title").innerHTML = sight.title;
 		sidebar.children.namedItem("image").setAttribute("src", sight.image);
 
-		map.flyTo([sight.position[0], sight.position[1]-0.003], 16); //offset the sidebar when zooming in
+		map.flyTo([sight.position[0], sight.position[1]-0.003], 16); //-0.003 => offset the sidebar when zooming in
 	};
 
 	let groupedLandmarks = loadedLandmarks.reduce((obj, sight) => {
@@ -49,7 +47,7 @@ function MarkerLayer(props) {
 					return (
 						<LayerGroup>
 							{Object.keys(groupedLandmarks).map((keyName, i) => (
-								<GroupedLayer key={i} checked name={GROUPNAMES[keyName]} group="Markers">
+								<LayersControl.Overlay key={i} checked name={GROUPNAMES[keyName]} group="Markers">
 									<LayerGroup>
 										{groupedLandmarks[keyName].map((sight) => (
 											<Marker
@@ -62,7 +60,7 @@ function MarkerLayer(props) {
 											/>
 										))}
 									</LayerGroup>
-								</GroupedLayer>
+								</LayersControl.Overlay>
 							))}
 						</LayerGroup>
 					);

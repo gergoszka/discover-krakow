@@ -4,13 +4,12 @@ import {
 	ZoomControl,
 	GeoJSON,
 	MapConsumer,
+	LayersControl,
 } from "react-leaflet";
 import * as L from "leaflet";
 import geoJsonDistricts from "../data/geojson/krakow-district.json";
 
 import MarkerLayer from "../components/map/MarkerLayer";
-import LayerControl, { GroupedLayer } from "../components/map/LayerControl";
-
 
 /**
  * Map functional component
@@ -23,6 +22,7 @@ function MapPage(props) {
 		new L.LatLng(49.975847, 19.793307),
 		new L.LatLng(50.126649, 20.1)
 	);
+
 
 	/**
 	 * Test function `code snippet`
@@ -47,33 +47,41 @@ function MapPage(props) {
 			zoomControl={false}
 			doubleClickZoom={false}
 		>
+			<ZoomControl position="bottomright" />
+			
 			<MapConsumer>
 				{(map) => {
 					if (props.mapReset) {
 						map.flyTo([50.04071458461792, 19.946708679199222], 12, {
-							duration: 1,
+							duration: 1.2,
 						});
-						console.log("ran");
 					}
 					return null;
 				}}
 			</MapConsumer>
 
-			<ZoomControl position="bottomright" />
-			<LayerControl>
-				<GroupedLayer checked name="OpenStreetMap" group="Base Layers">
+			<LayersControl>
+				
+				<LayersControl.BaseLayer checked name="OpenStreetMap" >
 					<TileLayer
-						attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+						attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 					/>
-				</GroupedLayer>
+				</LayersControl.BaseLayer>
+				<LayersControl.BaseLayer name="Esri WorldImagery" >
+					<TileLayer
+							attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+						url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'"
+					/>
+				</LayersControl.BaseLayer> 
 
-				<MarkerLayer />
+				<MarkerLayer /> 
 
-				<GroupedLayer name="Districts" group="Other">
+				<LayersControl.Overlay name="Districts"  id="district">
 					<GeoJSON data={geoJsonDistricts} onEachFeature={onEachDistrict} />
-				</GroupedLayer>
-			</LayerControl>
+				</LayersControl.Overlay>
+
+			</LayersControl>
 		</MapContainer>
 	);
 }

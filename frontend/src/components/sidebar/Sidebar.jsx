@@ -10,7 +10,7 @@ function Sidebar(props) {
 		<div id="sidebar" className={classes.sidebar} hidden>
 			<button className={classes.back} onClick={props.handleMapReset}>
 				Back to map
-			</button>
+			</button> 
 			<button className={classes.close} onClick={close}>
 				X
 			</button>

@@ -27,7 +27,8 @@ function LandmarkForm(props) {
 		});
 	}, [props.position]);
 
-	useEffect(() => {
+	// Disabled untill i find a better api
+	/* useEffect(() => {
 		const delayDebounceFn = setTimeout(() => {
 			if(formData.address.length > 3){
 				axios.get(
@@ -40,16 +41,20 @@ function LandmarkForm(props) {
 								...formData,
 								position: [res.data.results[0].geometry.lat, res.data.results[0].geometry.lng],
 							});
-							// THis is buggy as hell
-							// Clean it up pls, future Greg
-							//props.setPos([res.data.results[0].geometry.lat, res.data.results[0].geometry.lng])
 						}
 					});
-			}
+			} 
 		}, 2000);
 
 		return () => clearTimeout(delayDebounceFn);
-	}, [formData.address]);
+	}, [formData.address]); 
+	
+	function deleteOptions() {
+		console.log("clicked");
+		let datalist = document.getElementById("addrlist");
+		datalist.innerHTML = ""
+	}
+	
 
 	useEffect(()=>{
 		for (var key in addrList) {
@@ -60,12 +65,16 @@ function LandmarkForm(props) {
 			document.getElementById("addrlist").appendChild(optionElement);
 		}
 	}, [addrList])
+	*/
 
 	function handleChange(event) {
 		setFormData({
 			...formData,
 			[event.target.name]: event.target.value,
 		});
+		if(event.target.name == "type"){
+			props.setMarker(event.target.value)
+		};
 	}
 
 	function handleSubmit(event) {
@@ -89,11 +98,6 @@ function LandmarkForm(props) {
 		return correct === Object.keys(data).length ? true : false;
 	}
 
-	function deleteOptions() {
-		console.log("clicked");
-		let datalist = document.getElementById("addrlist");
-		datalist.innerHTML = ""
-	}
 
 	return (
 		<div className={classes.formContainer}>
@@ -127,6 +131,7 @@ function LandmarkForm(props) {
 						type="text"
 						name="desc"
 						id="desc"
+						required
 						value={formData.desc}
 						onChange={handleChange}
 					/>
@@ -156,6 +161,7 @@ function LandmarkForm(props) {
 						name="address"
 						id="address"
 						list="addrlist"
+						disabled
 						value={formData.address}
 						onChange={handleChange}
 					/>

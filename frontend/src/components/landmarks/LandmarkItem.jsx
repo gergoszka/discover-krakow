@@ -4,7 +4,7 @@ import { addFavorite, removeFavorite } from "../../store/reducers/favoriteSlice"
 import { useDispatch, useSelector } from "react-redux";
 const classes = require("../ui/Card.module.css");
 
-function LandMarkItem(props) {
+function LandMarkItem(props) { 
 	let landmark = props.landmark;
 	let dispatch = useDispatch();
 
@@ -44,6 +44,7 @@ function LandMarkItem(props) {
 							<RiStarLine />
 						</span>
 					)}
+					
 				</h3>
 			</Card>
 		</li>

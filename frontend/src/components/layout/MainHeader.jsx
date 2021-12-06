@@ -21,16 +21,7 @@ function MainHeader() {
           <li>
             <Link to="/submit">Submit Content</Link>
           </li>
-         {/*  <li>
-            <Link to="">Food & Drinks</Link>
-          </li>
-          <li>
-            <Link to="">Events</Link>
-          </li>
-          <li>
-            <Link to="">For Erasmus Students</Link>
-          </li> */}
-        </ul>
+        </ul> 
       </nav>
     </header>
   );

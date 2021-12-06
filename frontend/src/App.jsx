@@ -16,11 +16,13 @@ function App() {
   const dispatch = useDispatch()
 	let [mapReset, setMapReset] = useState(false)
 
-  function naiveObjectComparison(objOne, objTwo) {
+  function ObjectComparison(objOne, objTwo) {
     return JSON.stringify(objOne) === JSON.stringify(objTwo);
   }
 
 	function handleMapReset(){
+		let sidebar = document.querySelector("#sidebar");
+		sidebar.setAttribute("hidden", "")
 		setMapReset(true)
 		setTimeout(() => {
 			setMapReset(false)
@@ -30,8 +32,7 @@ function App() {
   useEffect(() => {
     axios.get("http://localhost:4040/landmarks").then((response) => {
       let landmarks = response.data
-
-      if(!naiveObjectComparison(landmarks, loadedLandmarks)){
+      if(!ObjectComparison(landmarks, loadedLandmarks)){
         dispatch(getSights(landmarks))
       }
     });
@@ -46,7 +47,7 @@ function App() {
 						<Sidebar handleMapReset={handleMapReset} />
 					</div>
 				</Route>
-
+ 
 				<Route path="/landmarks" exact>
 					<LandmarksPage />
 				</Route>
