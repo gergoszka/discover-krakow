@@ -17,6 +17,10 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 
+app.get("/", (req, res) => {
+  res.send("This seems to work")
+})
+
 app.post("/landmarks", (req, res) => {
   console.log(req.body);
   let _landmark = {
