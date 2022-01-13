@@ -80,7 +80,7 @@ function LandmarkForm(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		if (isFormFilled(formData)) {
-			axios.post("http://localhost:4040/landmarks", formData).then((res) => {
+			axios.post("https://discover-krakow.herokuapp.com/landmarks", formData).then((res) => {
 				dispatch(getSights(res.data));
 			});
 

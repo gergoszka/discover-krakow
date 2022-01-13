@@ -30,7 +30,7 @@ function App() {
 	}
 
   useEffect(() => {
-    axios.get("http://localhost:4040/landmarks").then((response) => {
+    axios.get("https://discover-krakow.herokuapp.com/landmarks").then((response) => {
       let landmarks = response.data
       if(!ObjectComparison(landmarks, loadedLandmarks)){
         dispatch(getSights(landmarks))
