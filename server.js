@@ -13,6 +13,7 @@ app.use(express.json());
 const mongoose = require("mongoose");
 const models = require("./models.js");
 const uri = process.env.MONGODB_URI;
+console.log(uri)
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -45,7 +46,6 @@ app.post("/landmarks", (req, res) => {
 
 app.get("/landmarks", (req, res) => {
   models.Landmark.find({}, "-__v", (err, landmarks) => {
-    console.log(landmarks);
     res.send(landmarks);
   });
 });
