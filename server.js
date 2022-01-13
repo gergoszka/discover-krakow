@@ -4,7 +4,7 @@ const http = require("http");
 const server = http.createServer(app);
 const cors = require("cors");
 const config = require('dotenv').config();
-const PORT = 4040;
+const PORT = process.env.PORT || 4040;
 
 app.use(cors());
 app.use(express.json());
